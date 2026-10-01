@@ -1,0 +1,46 @@
+/* Phuket Hotel demo site: shared styles */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFF8E1;color:#2A1A17;font-family:'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#B3201A}a:hover{color:#7E1814}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #F2B91E;outline-offset:2px}
+img{max-width:100%}
+
+/* Photo slots: the label shows until images/<name>.jpg exists */
+.ph{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.02em;text-align:center;padding:12px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Room filters */
+.filter{min-height:44px;padding:0 18px;border-radius:4px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;background:#FFFFFF;color:#2A1A17;border:1.5px solid #EBDDB5}
+.filter[aria-pressed="true"]{background:#2A1A17;color:#FFFFFF;border-color:#2A1A17}
+.room[hidden]{display:none !important}
+
+/* Mobile menu and sticky booking bar (hidden on desktop) */
+.navspace{display:none;flex-grow:1}
+.mnav{display:none;position:relative}
+.mnav summary{list-style:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#2A1A17}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav-panel{position:absolute;right:0;top:52px;z-index:20;background:#FFFFFF;border:1px solid #EBDDB5;border-radius:8px;box-shadow:0 12px 32px rgba(42,26,23,.18);padding:8px;display:flex;flex-direction:column;min-width:220px}
+.mnav-panel a{padding:12px 14px;color:#2A1A17;text-decoration:none;font-weight:600;border-radius:4px}
+.mnav-panel a:hover{background:#FFF8E1}
+.mnav-panel span{padding:12px 14px;font-size:14px;color:#5E4A44;border-top:1px solid #EBDDB5}
+.sticky{display:none}
+
+@media (max-width:900px){
+  .navlinks{display:none !important}
+  .navspace{display:block}
+  .mnav{display:block}
+}
+@media (max-width:760px){
+  .g{grid-template-columns:minmax(0,1fr) !important}
+  .g>*{grid-column:auto !important}
+  h1{font-size:40px !important}
+  h2{font-size:30px !important}
+  blockquote{font-size:26px !important}
+  .navbook{display:none !important}
+  body{padding-bottom:76px}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#FFFFFF;border-top:1px solid #EBDDB5;box-shadow:0 -8px 24px rgba(42,26,23,.12);padding:12px 16px;gap:12px;align-items:center;justify-content:space-between}
+  .sticky-k{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5E4A44}
+  .sticky-v{font-size:15px;font-weight:600}
+}
+.hero .ph>div,.hero .ph>svg{visibility:hidden}
